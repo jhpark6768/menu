@@ -88,19 +88,19 @@ public class OrderServiceImpl implements OrderService {
 		AnchorPane ap = new AnchorPane();
 		TableView tableView = new TableView();
 		
-		TableColumn<Menu, Integer> jj = new TableColumn<>("jj");
+		TableColumn<Menu, Integer> jj = new TableColumn<>("짜장면");
 		jj.setCellValueFactory(new PropertyValueFactory("jj"));
-		TableColumn<Menu, Integer> jb = new TableColumn<>("jb");
+		TableColumn<Menu, Integer> jb = new TableColumn<>("짬뽕");
 		jb.setCellValueFactory(new PropertyValueFactory("jb"));
-		TableColumn<Menu, Integer> bb = new TableColumn<>("bb");
+		TableColumn<Menu, Integer> bb = new TableColumn<>("볶음밥");
 		bb.setCellValueFactory(new PropertyValueFactory("bb"));
-		TableColumn<Menu, Integer> ts = new TableColumn<>("ts");
+		TableColumn<Menu, Integer> ts = new TableColumn<>("탕수육");
 		ts.setCellValueFactory(new PropertyValueFactory("ts"));
-		TableColumn<Menu, String> place = new TableColumn<>("place");
+		TableColumn<Menu, String> place = new TableColumn<>("주소");
 		place.setCellValueFactory(new PropertyValueFactory("place"));
-		TableColumn<Menu, Boolean> use = new TableColumn<>("use");
+		TableColumn<Menu, Boolean> use = new TableColumn<>("일회용품");
 		use.setCellValueFactory(new PropertyValueFactory("use"));
-		TableColumn<Menu, String> pay = new TableColumn<>("pay");
+		TableColumn<Menu, String> pay = new TableColumn<>("결제수단");
 		pay.setCellValueFactory(new PropertyValueFactory("pay"));
 		
 		tableView.getColumns().addAll(jj,jb,bb,ts,place,use,pay);

@@ -51,7 +51,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 
 		//아이디 중복 체크
 		//chkId가 true일 때
-		String sql = "insert into menu values(sq2.NEXTVAL,?,?,?,?,?,?,?)";
+		String sql = "insert into menu values(sq.NEXTVAL,?,?,?,?,?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);

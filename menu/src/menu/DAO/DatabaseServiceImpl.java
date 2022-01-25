@@ -49,7 +49,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 
 		//아이디 중복 체크
 		//chkId가 true일 때
-		String sql = "insert into member values(sq2.NEXTVAL,?,?,?,?,?,?,?)";
+		String sql = "insert into menu values(sq2.NEXTVAL,?,?,?,?,?,?,?)";
 
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -62,13 +62,19 @@ public class DatabaseServiceImpl implements DatabaseService {
 			pstmt.setString(7, m.getPay());
 
 			int result = pstmt.executeUpdate();
-
+			
+			if(result >= 1){
+				cs.errorMsg("주문입력", "주문입력 성공", "주문에 성공!!");
+				return true;
+			}else {
+			}
+			pstmt.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 		return false;
-	}
+}
 
 @Override
 public String getUse(boolean use) {

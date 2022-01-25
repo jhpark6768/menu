@@ -65,6 +65,7 @@ public class OrderServiceImpl implements OrderService {
 		System.out.println();
 
 		if(dao.insert(m)) {
+			System.out.println("입력 성공");
 			Stage s = (Stage) orderForm.getScene().getWindow();
 			s.close();
 		}

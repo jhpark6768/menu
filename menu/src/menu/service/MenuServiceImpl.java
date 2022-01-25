@@ -8,10 +8,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
+import menu.DAO.DatabaseServiceImpl;
 import menu.Controller;
 import menu.Menu;
 
 public class MenuServiceImpl implements MenuService {
+	DatabaseServiceImpl dao = new DatabaseServiceImpl();
 		
 	@Override
 	public void MenuProc(Parent menuForm) {

@@ -1,16 +1,25 @@
 package menu.service;
 
+import java.util.List;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import menu.DAO.DatabaseService;
 import menu.DAO.DatabaseServiceImpl;
 import menu.Menu;
 
 public class OrderServiceImpl implements OrderService {
-	DatabaseService dao = new DatabaseServiceImpl();
+	DatabaseServiceImpl dao = new DatabaseServiceImpl();
 
 	@Override
 	public void OrderProc(Parent orderForm) {
@@ -62,6 +71,7 @@ public class OrderServiceImpl implements OrderService {
 			m.setPay("토스");
 		}
 		System.out.println(cmbPay.getValue() + "로 결제");
+		menuInfo(orderForm);
 		System.out.println();
 
 		if(dao.insert(m)) {
@@ -71,6 +81,41 @@ public class OrderServiceImpl implements OrderService {
 		}
 	}
 
+	private void menuInfo(Parent orderForm) {
+		// TODO Auto-generated method stub
+		Stage stage = new Stage();
+		
+		AnchorPane ap = new AnchorPane();
+		TableView tableView = new TableView();
+		
+		TableColumn<Menu, Integer> jj = new TableColumn<>("jj");
+		jj.setCellValueFactory(new PropertyValueFactory("jj"));
+		TableColumn<Menu, Integer> jb = new TableColumn<>("jb");
+		jb.setCellValueFactory(new PropertyValueFactory("jb"));
+		TableColumn<Menu, Integer> bb = new TableColumn<>("bb");
+		bb.setCellValueFactory(new PropertyValueFactory("bb"));
+		TableColumn<Menu, Integer> ts = new TableColumn<>("ts");
+		ts.setCellValueFactory(new PropertyValueFactory("ts"));
+		TableColumn<Menu, String> place = new TableColumn<>("place");
+		place.setCellValueFactory(new PropertyValueFactory("place"));
+		TableColumn<Menu, Boolean> use = new TableColumn<>("use");
+		use.setCellValueFactory(new PropertyValueFactory("use"));
+		TableColumn<Menu, String> pay = new TableColumn<>("pay");
+		pay.setCellValueFactory(new PropertyValueFactory("pay"));
+		
+		tableView.getColumns().addAll(jj,jb,bb,ts,place,use,pay);
+		
+		List<Menu> menuList = dao.selectAll();
+		ObservableList<Menu> data = 
+				FXCollections.observableArrayList(menuList);
+		tableView.setItems(data);
+
+		ap.getChildren().add(tableView);
+		stage.setScene(new Scene(ap,560,200));
+		stage.setTitle("주문정보");
+		stage.show();
+	}
+	
 	@Override
 	public void OrderCancelProc(Parent orderForm) {
 		// TODO Auto-generated method stub

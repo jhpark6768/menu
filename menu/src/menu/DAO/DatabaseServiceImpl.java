@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import menu.Menu;
 import menu.DAO.DatabaseService;
@@ -83,6 +85,37 @@ public String getUse(boolean use) {
 		return "사용";
 	}
 	return "사용안함";
+}
+
+public List selectAll() {
+	// TODO Auto-generated method stub
+	String sql = "select * from member";
+	List<Menu> list = new ArrayList<Menu>();
+	try {
+		pstmt = con.prepareStatement(sql);
+		
+		rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			Menu m = new Menu();
+			m.setJj(rs.getInt(1));
+			m.setJb(rs.getInt(2));
+			m.setBb(rs.getInt(3));
+			m.setTs(rs.getInt(4));
+			m.setPlace(rs.getString(5));
+			m.setUse(rs.getString(6).equals("사용")? true : false);
+			m.setPlace(rs.getString(7));
+			
+			list.add(m);
+			
+		}
+		rs.close();
+		pstmt.close();
+	} catch (Exception e) {
+		// TODO: handle exception
+		e.printStackTrace();
+	}
+	return list;
 }
 
 }

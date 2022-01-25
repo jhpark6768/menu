@@ -1,12 +1,19 @@
 package menu.service;
 
 import java.io.IOException;
+import java.util.List;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import menu.DAO.DatabaseServiceImpl;
 import menu.Controller;
@@ -147,4 +154,5 @@ public class MenuServiceImpl implements MenuService {
 		
 		System.out.println("총 금액:" + num +"원");
 	}
+	
 }

@@ -99,7 +99,7 @@ public List selectAll() {
 		while(rs.next()) {
 			Menu m = new Menu();
 			
-			m.setNum(rs.getInt(1));
+			m.setNu(rs.getInt(1));
 			m.setJj(rs.getInt(2));
 			m.setJb(rs.getInt(3));
 			m.setBb(rs.getInt(4));

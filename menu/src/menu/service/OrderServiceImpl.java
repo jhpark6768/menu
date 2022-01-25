@@ -90,6 +90,8 @@ public class OrderServiceImpl implements OrderService {
 		AnchorPane ap = new AnchorPane();
 		TableView tableView = new TableView();
 		
+		TableColumn<Menu, Integer> nu = new TableColumn<>("#");
+		nu.setCellValueFactory(new PropertyValueFactory("nu"));
 		TableColumn<Menu, Integer> jj = new TableColumn<>("짜장면");
 		jj.setCellValueFactory(new PropertyValueFactory("jj"));
 		TableColumn<Menu, Integer> jb = new TableColumn<>("짬뽕");
@@ -105,7 +107,7 @@ public class OrderServiceImpl implements OrderService {
 		TableColumn<Menu, String> pay = new TableColumn<>("결제수단");
 		pay.setCellValueFactory(new PropertyValueFactory("pay"));
 		
-		tableView.getColumns().addAll(jj,jb,bb,ts,place,use,pay);
+		tableView.getColumns().addAll(nu,jj,jb,bb,ts,place,use,pay);
 		
 		List<Menu> menuList = dao.selectAll();
 		ObservableList<Menu> data = 
@@ -113,7 +115,7 @@ public class OrderServiceImpl implements OrderService {
 		tableView.setItems(data);
 
 		ap.getChildren().add(tableView);
-		stage.setScene(new Scene(ap,560,200));
+		stage.setScene(new Scene(ap,490,400));
 		stage.setTitle("주문정보");
 		stage.show();
 	}

@@ -1,7 +1,7 @@
 package menu;
 
 public class Menu {
-	private int num;
+	private int nu;
 	private int jj;
 	private int jb;
 	private int bb;
@@ -10,11 +10,11 @@ public class Menu {
 	private boolean use;
 	private String pay;
 	
-	public int getNum() {
-		return num;
+	public int getNu() {
+		return nu;
 	}
-	public void setNum(int num) {
-		this.num = num;
+	public void setNu(int nu) {
+		this.nu = nu;
 	}
 	public String getPlace() {
 		return place;

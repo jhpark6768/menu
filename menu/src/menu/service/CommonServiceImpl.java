@@ -1,5 +1,6 @@
 package menu.service;
 
+import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -8,13 +9,13 @@ import javafx.stage.Stage;
 public class CommonServiceImpl implements CommonService {
 
 	@Override
-	public void CancelProc(Parent root) {
+	public void windowClose(ActionEvent event) {
 		// TODO Auto-generated method stub
-
-		Stage stage = (Stage) root.getScene().getWindow();
-		stage.close();
-
+		Parent p = (Parent) event.getSource();
+		Stage s = (Stage) p.getScene().getWindow();
+		s.close();
 	}
+
 
 	@Override
 	public void errorMsg(String title, String headerStr, String contextStr) {

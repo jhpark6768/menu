@@ -1,8 +1,8 @@
 package menu.service;
 
-import javafx.scene.Parent;
+import javafx.event.ActionEvent;
 
 public interface CommonService {
-	public void CancelProc(Parent root);
 	public void errorMsg(String title, String headerStr, String contextStr);
+	public void windowClose(ActionEvent event);
 }

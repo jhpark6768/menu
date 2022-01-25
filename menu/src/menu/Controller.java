@@ -1,5 +1,6 @@
 package menu;
 
+import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 import menu.service.CommonService;
 import menu.service.CommonServiceImpl;
@@ -35,15 +36,13 @@ public class Controller {
 		ms.MenuProc(menuForm);
 	}
 	
-	public void CancelProc() {
-		cs.CancelProc(menuForm);
+	public void CancelProc(ActionEvent event) {
+		cs.windowClose(event);
 	}
 	
 	public void OrderProc() {
 		os.OrderProc(orderForm);
 	}
 	
-	public void OrderCancelProc() {
-		os.OrderCancelProc(orderForm);
-	}
+
 }

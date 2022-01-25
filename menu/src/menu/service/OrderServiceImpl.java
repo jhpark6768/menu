@@ -118,11 +118,5 @@ public class OrderServiceImpl implements OrderService {
 		stage.show();
 	}
 	
-	@Override
-	public void OrderCancelProc(Parent orderForm) {
-		// TODO Auto-generated method stub
-		Stage stage = (Stage) orderForm.getScene().getWindow();
-		stage.close();
 
-	}
 }

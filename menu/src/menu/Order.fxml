@@ -85,7 +85,7 @@
                   <Insets left="80.0" top="30.0" />
                </HBox.margin>
             </Button>
-            <Button onAction="#OrderCancelProc" mnemonicParsing="false" prefHeight="44.0" prefWidth="103.0" text="취소">
+            <Button onAction="#CancelProc" mnemonicParsing="false" prefHeight="44.0" prefWidth="103.0" text="취소">
                <font>
                   <Font size="24.0" />
                </font>

@@ -20,12 +20,13 @@ import menu.Menu;
 
 public class OrderServiceImpl implements OrderService {
 	DatabaseServiceImpl dao = new DatabaseServiceImpl();
-
+	static Menu m = new Menu();
+	
 	@Override
 	public void OrderProc(Parent orderForm) {
 		// TODO Auto-generated method stub
 		CommonService cs = new CommonServiceImpl();
-		Menu m = new Menu();
+		
 
 		TextField txtFld = (TextField) orderForm.lookup("#txtPlace");
 		System.out.println("주소 : " + txtFld.getText());
@@ -36,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
 			System.out.println();
 			return;
 		}
-
+		m.setPlace(txtFld.getText());
 		System.out.println();
 
 		CheckBox chkUse = (CheckBox) orderForm.lookup("#chkUse");

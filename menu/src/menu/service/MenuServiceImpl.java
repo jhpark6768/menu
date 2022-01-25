@@ -25,6 +25,7 @@ public class MenuServiceImpl implements MenuService {
 	@Override
 	public void MenuProc(Parent menuForm) {
 		// TODO Auto-generated method stub
+		OrderServiceImpl os = new OrderServiceImpl();
 		
 		Stage OrderForm = new Stage();
 
@@ -79,6 +80,7 @@ public class MenuServiceImpl implements MenuService {
 			num += m.getJj()*4000;
 			
 		}
+
 		if(((CheckBox)menuForm.lookup("#chkjb")).isSelected()) {
 			ComboBox<String> cmbCnt2 = 
 					(ComboBox<String>)menuForm.lookup("#cmbCnt2");
@@ -153,6 +155,9 @@ public class MenuServiceImpl implements MenuService {
 		}
 		
 		System.out.println("총 금액:" + num +"원");
+		
+		//값 전달이 없음
+		os.m  = m;
 	}
 	
 }

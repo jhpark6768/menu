@@ -28,7 +28,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 		String pass = "oracle";
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			System.out.println("연결");
+			System.out.println("연결1");
 		} catch (ClassNotFoundException e) {
 			System.out.println("오라클 등록 실패");
 			// TODO Auto-generated catch block
@@ -36,7 +36,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 		}
 		try {	
 			con = DriverManager.getConnection(url, user, pass);
-			System.out.println("연결");
+			System.out.println("연결2");
 		} catch (SQLException e) {
 			System.out.println("오라클 연결 실패");
 			// TODO Auto-generated catch block
@@ -52,7 +52,7 @@ public class DatabaseServiceImpl implements DatabaseService {
 		//아이디 중복 체크
 		//chkId가 true일 때
 		String sql = "insert into menu values(sq.NEXTVAL,?,?,?,?,?,?,?)";
-
+		System.out.println("저장 : " + m.getJj());
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, m.getJj());
@@ -89,7 +89,7 @@ public String getUse(boolean use) {
 
 public List selectAll() {
 	// TODO Auto-generated method stub
-	String sql = "select * from member";
+	String sql = "select * from menu";
 	List<Menu> list = new ArrayList<Menu>();
 	try {
 		pstmt = con.prepareStatement(sql);
@@ -98,13 +98,16 @@ public List selectAll() {
 		
 		while(rs.next()) {
 			Menu m = new Menu();
-			m.setJj(rs.getInt(1));
-			m.setJb(rs.getInt(2));
-			m.setBb(rs.getInt(3));
-			m.setTs(rs.getInt(4));
-			m.setPlace(rs.getString(5));
-			m.setUse(rs.getString(6).equals("사용")? true : false);
-			m.setPlace(rs.getString(7));
+			
+			m.setNum(rs.getInt(1));
+			m.setJj(rs.getInt(2));
+			m.setJb(rs.getInt(3));
+			m.setBb(rs.getInt(4));
+			m.setTs(rs.getInt(5));
+			m.setPlace(rs.getString(6));
+			
+			m.setUse(rs.getString(7).equals("사용")? true : false);
+			m.setPay(rs.getString(8));
 			
 			list.add(m);
 			

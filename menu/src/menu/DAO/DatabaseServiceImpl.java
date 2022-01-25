@@ -105,7 +105,6 @@ public List selectAll() {
 			m.setBb(rs.getInt(4));
 			m.setTs(rs.getInt(5));
 			m.setPlace(rs.getString(6));
-			
 			m.setUse(rs.getString(7).equals("사용")? true : false);
 			m.setPay(rs.getString(8));
 			

@@ -72,11 +72,12 @@ public class OrderServiceImpl implements OrderService {
 			m.setPay("토스");
 		}
 		System.out.println(cmbPay.getValue() + "로 결제");
-		menuInfo(orderForm);
+		
 		System.out.println();
 
 		if(dao.insert(m)) {
 			System.out.println("입력 성공");
+			menuInfo(orderForm);
 			Stage s = (Stage) orderForm.getScene().getWindow();
 			s.close();
 		}
